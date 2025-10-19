@@ -1,21 +1,26 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class IsoCharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     [Header("Camera")]
     [SerializeField] private Transform cam;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 6f;
-    [SerializeField] private float acceleration = 20f;
-    [SerializeField] private float deceleration = 25f;
-    [SerializeField, Range(0f, 1f)] private float airControl = 0.6f;
+    [SerializeField] private float groundAcceleration = 20f;
+    [SerializeField] private float groundDeceleration = 25f;
+
+    [Header("Air Control")]
+    [SerializeField] private float airAcceleration = 3f;  // small value is better
+    [SerializeField] private float airMaxSpeed = 6f;      
+
+    [Header("Facing")]
     [SerializeField] private bool rotateToMove = true;
     [SerializeField] private float rotateSpeed = 720f;
 
     [Header("Jumping")]
-    [SerializeField] private int maxJumps = 2;   // set 2 for double-jump
+    [SerializeField] private int maxJumps = 2;
     [SerializeField] private float jumpHeight = 2f;
 
     [Header("Ground Check")]
@@ -28,23 +33,38 @@ public class IsoCharacterController : MonoBehaviour
     private bool isGrounded;
     private bool jumpQueued;
 
+    
+    private readonly Collider[] _groundHits = new Collider[4];
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        if (cam == null && Camera.main != null) cam = Camera.main.transform;
+        if (!cam && Camera.main) cam = Camera.main.transform;
     }
 
     void Update()
     {
-        if (groundCheck != null)
+        //  ground check that ignores our own colliders
+        if (groundCheck)
         {
-            isGrounded = Physics.CheckSphere(
+            int count = Physics.OverlapSphereNonAlloc(
                 groundCheck.position,
                 groundRadius,
+                _groundHits,
                 groundMask,
                 QueryTriggerInteraction.Ignore
             );
+
+            isGrounded = false;
+            for (int i = 0; i < count; i++)
+            {
+                var col = _groundHits[i];
+                if (!col) continue;
+                if (col.transform.IsChildOf(transform)) continue; // ignore self
+                isGrounded = true;
+                break;
+            }
         }
         else
         {
@@ -59,32 +79,55 @@ public class IsoCharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Legacy axes (exist by default): Horizontal (A/D), Vertical (W/S)
-        Vector2 raw = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        Vector2 input = raw.sqrMagnitude > 1f ? raw.normalized : raw; // remove diagonal boost
+        //wasd movement
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
+        Vector2 input = new Vector2(h, v);
+        if (input.sqrMagnitude > 1f) input.Normalize(); // no diagonal boost
+
+        
         Vector3 fwd = Vector3.forward, right = Vector3.right;
-        if (cam != null)
+        if (cam)
         {
             fwd = cam.forward; fwd.y = 0f; fwd.Normalize();
             right = cam.right; right.y = 0f; right.Normalize();
         }
 
-        Vector3 desiredDir = right * input.x + fwd * input.y;
+        Vector3 desiredDir = (right * input.x + fwd * input.y);
         if (desiredDir.sqrMagnitude > 1f) desiredDir.Normalize();
 
-        Vector3 desiredPlanarVel = desiredDir * moveSpeed;
-
         Vector3 vel = rb.linearVelocity;
-        Vector3 planarVel = new Vector3(vel.x, 0f, vel.z);
+        Vector3 planar = new Vector3(vel.x, 0f, vel.z);
 
-        Vector3 delta = desiredPlanarVel - planarVel;
-        float curAccel = desiredDir.sqrMagnitude > 0.0001f ? acceleration : deceleration;
-        float control = isGrounded ? 1f : airControl;
+        if (isGrounded)
+        {
+            // Grounded acceleratedecelerate 
+            Vector3 desiredPlanar = desiredDir * moveSpeed;
+            Vector3 delta = desiredPlanar - planar;
+            float accel = desiredDir.sqrMagnitude > 0.0001f ? groundAcceleration : groundDeceleration;
+            Vector3 accelVec = Vector3.ClampMagnitude(delta, accel);
+            rb.AddForce(accelVec, ForceMode.Acceleration);
+        }
+        else
+        {
+            //small acceleration in air 
+            if (desiredDir.sqrMagnitude > 0f)
+            {
+                rb.AddForce(desiredDir * airAcceleration, ForceMode.Acceleration);
+            }
 
-        Vector3 accelVec = Vector3.ClampMagnitude(delta, curAccel * control);
-        rb.AddForce(accelVec, ForceMode.Acceleration);
+            // Keep  speed under control in air
+            Vector3 newPlanar = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+            float spd = newPlanar.magnitude;
+            if (spd > airMaxSpeed)
+            {
+                newPlanar = newPlanar.normalized * airMaxSpeed;
+                rb.linearVelocity = new Vector3(newPlanar.x, rb.linearVelocity.y, newPlanar.z);
+            }
+        }
 
+        // Jump
         if (jumpQueued)
         {
             if (isGrounded || jumpsUsed < maxJumps)
@@ -97,12 +140,13 @@ public class IsoCharacterController : MonoBehaviour
             jumpQueued = false;
         }
 
+        // facing
         if (rotateToMove)
         {
-            Vector3 faceDir = desiredDir.sqrMagnitude > 0.001f ? desiredDir : planarVel.normalized;
-            if (faceDir.sqrMagnitude > 0.001f)
+            Vector3 face = desiredDir.sqrMagnitude > 0.001f ? desiredDir : planar.normalized;
+            if (face.sqrMagnitude > 0.001f)
             {
-                Quaternion target = Quaternion.LookRotation(faceDir, Vector3.up);
+                Quaternion target = Quaternion.LookRotation(face, Vector3.up);
                 rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, target, rotateSpeed * Time.fixedDeltaTime));
             }
         }
@@ -111,7 +155,7 @@ public class IsoCharacterController : MonoBehaviour
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-        if (groundCheck != null)
+        if (groundCheck)
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
