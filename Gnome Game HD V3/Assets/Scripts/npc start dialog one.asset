@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48bc1bc89573d154298e96381f49ef28, type: 3}
+  m_Name: npc start dialog one
+  m_EditorClassIdentifier: 
+  lines:
+  - text: 'Hello i ama  silly little billy '
+    voiceOptional: {fileID: 0}
+  - text: 'can you push the damn block off the world plz '
+    voiceOptional: {fileID: 0}
+  - text: 'K BYEEEE
+
+'
+    voiceOptional: {fileID: 0}
