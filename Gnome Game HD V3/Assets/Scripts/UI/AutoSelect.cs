@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class AutoSelect : MonoBehaviour
 {
-
     void Start()
     {
         EventSystem.current.SetSelectedGameObject(this.gameObject);
@@ -14,4 +13,6 @@ public class AutoSelect : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(this.gameObject);
     }
+
+    
 }

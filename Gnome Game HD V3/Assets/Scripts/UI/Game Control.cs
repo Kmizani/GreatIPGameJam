@@ -5,7 +5,7 @@ public class GameControl : MonoBehaviour
 {
     public void OnPlay()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Lore Scene");
     }
 
     public void OnQuit()
