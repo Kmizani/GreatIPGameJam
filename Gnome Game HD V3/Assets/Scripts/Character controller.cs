@@ -1,10 +1,19 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CharacterController : MonoBehaviour
 {
     [Header("Camera")]
     [SerializeField] private Transform cam;
+
+    [Header("Character")]
+    [SerializeField] private Image _sprite;
+    [SerializeField] private Light _lightSource;
+    [SerializeField] private Transform _leftSpawn;
+    [SerializeField] private Transform _rightSpawn;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 6f;
@@ -86,6 +95,16 @@ public class CharacterController : MonoBehaviour
         Vector2 input = new Vector2(h, v);
         if (input.sqrMagnitude > 1f) input.Normalize(); // no diagonal boost
 
+        if (input.x <= 0f)
+        {
+            _sprite.rectTransform.localScale = new Vector3(1, 1, 1);
+            _lightSource.transform.position = _leftSpawn.position;
+        }
+        else
+        {
+            _sprite.rectTransform.localScale = new Vector3(-1, 1, 1);
+            _lightSource.transform.position = _rightSpawn.position;
+        }
         
         Vector3 fwd = Vector3.forward, right = Vector3.right;
         if (cam)
