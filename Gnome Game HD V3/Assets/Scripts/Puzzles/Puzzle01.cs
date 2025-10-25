@@ -14,6 +14,7 @@ public class Puzzle01 : MonoBehaviour
     private string _playerAnswer = "";
     private Interactable _currentInteractable;
     [SerializeField] private TMP_InputField[] _inputFields;
+    [SerializeField] private string[] _puzzleHints;
 
     private void Awake()
     {
@@ -59,12 +60,18 @@ public class Puzzle01 : MonoBehaviour
         // Subscribe to the interactable's event
         if (_currentInteractable != null)
             _currentInteractable.triggerEvent += WordPuzzle;
+
+        if (HintManager.Instance != null)
+            HintManager.Instance.SetHints(_puzzleHints);
     }
 
     private void OnDisable()
     {
         if (_currentInteractable != null)
             _currentInteractable.triggerEvent -= WordPuzzle;
+
+        if (HintManager.Instance != null)
+            HintManager.Instance.ClearHints();
     }
 
     private void WordPuzzle()
@@ -123,8 +130,15 @@ public class Puzzle01 : MonoBehaviour
         yield return new WaitForSeconds(.75f);
         foreach (TMP_InputField field in _inputFields)
         {
+            field.text = "";
             field.image.color = Color.white;
+            field.DeactivateInputField();
         }
+        yield return null;
+
+        // Focus the first input field again
+        if (_inputFields.Length > 0)
+            _inputFields[0].ActivateInputField();
     }
 
     public void BookFall()
@@ -147,5 +161,13 @@ public class Puzzle01 : MonoBehaviour
         }
 
         transform.localRotation = endRot; // snap to final rotation
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            _canvas.SetActive(false);
+        }
     }
 }
