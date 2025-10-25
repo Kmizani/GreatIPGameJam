@@ -51,11 +51,10 @@ public class HintManager : MonoBehaviour
 
         if (_currentIndex < _currentHints.Length)
         {
-            _hintText.text += _currentHints[_currentIndex] + "\n";
+            _hintText.text += _currentHints[_currentIndex] + "\n\n";
         }
         else
         {
-            _hintText.text += "No more hints!";
             _hintButton.interactable = false;
         }
     }
