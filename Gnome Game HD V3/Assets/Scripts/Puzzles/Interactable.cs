@@ -10,7 +10,8 @@ using UnityEngine;
 
     private void Start()
     {
-        if (UI != null) UI.gameObject.SetActive(false);
+        UI.SetActive(false);
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -18,7 +19,7 @@ using UnityEngine;
         {
             _playerInRange = true;
             Debug.Log("player entered");
-            if(UI != null) UI.gameObject.SetActive(true);
+            UI.SetActive(true);
         }
     }
 
@@ -28,7 +29,8 @@ using UnityEngine;
         {
             _playerInRange = false;
             Debug.Log("player exited");
-            if (UI != null) UI.gameObject.SetActive(false);
+            UI.SetActive(false);
+
         }
     }
 
@@ -43,6 +45,12 @@ using UnityEngine;
      public void Interact()
     {
         triggerEvent?.Invoke();
+        this.enabled = false;
         Debug.Log("interacted");
+    }
+
+    public void HideIcon()
+    {
+        UI.SetActive(false);
     }
 }

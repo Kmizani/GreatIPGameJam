@@ -11,6 +11,7 @@ public class LoreScript : MonoBehaviour
     public static event Action nextPart;
     public static event Action revealAllText;
 
+
     private void Start()
     {
         _typewriter = this.GetComponent<Typewriter>();

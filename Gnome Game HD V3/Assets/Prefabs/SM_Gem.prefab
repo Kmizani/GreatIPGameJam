@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8985358738207590103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.44
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.96
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      propertyPath: m_Name
+      value: SM_Gem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1666032958325580104}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 880500990838388014}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1131079850825669438}
+  m_SourcePrefab: {fileID: 100100000, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+--- !u!1 &8102822334775032710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cedf0f620f49aff409f53de6c86b13b3, type: 3}
+  m_PrefabInstance: {fileID: 8985358738207590103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1666032958325580104
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102822334775032710}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5890195, y: 0.7599852, z: 0.7275586}
+  m_Center: {x: 0.059205335, y: -0.02843179, z: -0.02344827}
+--- !u!114 &880500990838388014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102822334775032710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c19c6139bfe214b876f746871ea02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 0}
+--- !u!114 &1131079850825669438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102822334775032710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d811fa8da7903a44094bb6fb48787730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textUI: {fileID: 0}
+  _text: Red Gem Collected!
+  _oldSprite: {fileID: 0}
+  _newSprite: {fileID: 21300000, guid: 71165a0920482704d9a7a1a7467d98b3, type: 3}
