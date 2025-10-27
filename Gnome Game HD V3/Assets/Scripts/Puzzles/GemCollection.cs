@@ -10,6 +10,7 @@ public class GemCollection : MonoBehaviour
     [SerializeField] private string _text;
     [SerializeField] private Image _oldSprite;
     [SerializeField] private Sprite _newSprite;
+    [SerializeField] private GameObject _vent;
 
 
     private void Awake()
@@ -42,6 +43,7 @@ public class GemCollection : MonoBehaviour
         _textUI.text = _text;
         yield return new WaitForSeconds(3f);
         _textUI.text = "";
+        _vent.SetActive(false);
         this.gameObject.SetActive(false);
     }
 }

@@ -9,17 +9,12 @@ public class WordPuzzle : Puzzle
 {
     [SerializeField] private GameObject[] UI;
     [SerializeField] private string _correctAnswer;
-    [SerializeField] private GameObject _player;
-    [SerializeField] private Transform _position;
-    [SerializeField] private float _rotZ = -90;
     private string _playerAnswer = "";
     private Interactable _currentInteractable;
     [SerializeField] private TMP_InputField[] _inputFields;
     [SerializeField] private string[] _puzzleHints;
     [SerializeField] private bool lastPuzzle = false;
     [SerializeField] private GameObject _gem;
-    [SerializeField] private GameObject _vent;
-    [SerializeField] private float _rotX = -90;
 
     private void Awake()
     {
@@ -130,12 +125,13 @@ public class WordPuzzle : Puzzle
             this.GetComponent<Interactable>().HideIcon();
             this.GetComponent<Interactable>().enabled = false;
             this.GetComponent<BoxCollider>().enabled = false;
+            //have confetti vfx here?
             if (lastPuzzle)
             {
-                _vent.SetActive(false);
                 _gem.SetActive(true);
             }
-            BookFall();
+
+            this.gameObject.SetActive(false);
         }
         else
         {
@@ -163,29 +159,6 @@ public class WordPuzzle : Puzzle
             _inputFields[0].ActivateInputField();
     }
 
-    private void BookFall()
-    {
-        _player.transform.position = _position.position;
-        StartCoroutine(RotateBook());
-    }
-
-    private IEnumerator RotateBook()
-    {
-        yield return new WaitForSeconds(1.5f);
-        Quaternion startRot = transform.localRotation;
-        Quaternion endRot = Quaternion.Euler(0, -90, _rotZ);
-        float elapsed = 0f;
-
-        while (elapsed < 1)
-        {
-            transform.localRotation = Quaternion.Lerp(startRot, endRot, elapsed / 1);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.localRotation = endRot; // snap to final rotation
-    }
-
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -196,27 +169,5 @@ public class WordPuzzle : Puzzle
                 this.GetComponent<Interactable>().enabled = true;
             }
         }
-    }
-
-    private void VentFall()
-    {
-        Debug.Log("Vent Fall");
-        StartCoroutine(RotateVent());
-    }
-
-    private IEnumerator RotateVent()
-    {
-        Quaternion startRot = _vent.transform.localRotation;
-        Quaternion endRot = Quaternion.Euler(_rotX, 0, 0);
-        float elapsed = 0f;
-
-        while (elapsed < 1)
-        {
-            _vent.transform.localRotation = Quaternion.Lerp(startRot, endRot, elapsed / 1);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        _vent.transform.localRotation = endRot; // snap to final rotation
     }
 }
