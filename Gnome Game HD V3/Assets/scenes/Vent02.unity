@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bf52054db2f7148be1ae3525a628db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: 3-Toybox
+  _sceneName: 2-Table
 --- !u!65 &204688414
 BoxCollider:
   m_ObjectHideFlags: 0
