@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 using static UnityEngine.Rendering.DebugUI;
 
 public class WordPuzzle : Puzzle
@@ -15,11 +16,14 @@ public class WordPuzzle : Puzzle
     [SerializeField] private string[] _puzzleHints;
     [SerializeField] private bool lastPuzzle = false;
     [SerializeField] private GameObject _gem;
+    private VFXSpawner _confetti;
 
     private void Awake()
     {
         // Cache references early so OnEnable can safely subscribe
         _currentInteractable = GetComponent<Interactable>();
+
+        _confetti = GetComponent<VFXSpawner>();
 
         if (UI != null)
         {
@@ -118,14 +122,13 @@ public class WordPuzzle : Puzzle
 
         if(_playerAnswer.ToLower() == _correctAnswer.ToLower())
         {
+            StartCoroutine(RightAnswer());
             foreach (GameObject ui in UI)
             {
                 ui.SetActive(false);
             }
-            this.GetComponent<Interactable>().HideIcon();
-            this.GetComponent<Interactable>().enabled = false;
-            this.GetComponent<BoxCollider>().enabled = false;
-            //have confetti vfx here?
+            _confetti.SpawnVFX();
+            
             if (lastPuzzle)
             {
                 _gem.SetActive(true);
@@ -144,6 +147,34 @@ public class WordPuzzle : Puzzle
         foreach (TMP_InputField field in _inputFields)
         {
             field.image.color = Color.red;
+        }
+        yield return new WaitForSeconds(.75f);
+        foreach (TMP_InputField field in _inputFields)
+        {
+            field.text = "";
+            field.image.color = Color.white;
+            field.DeactivateInputField();
+        }
+        yield return null;
+
+        // Focus the first input field again        
+
+
+
+
+
+
+
+
+
+        if (_inputFields.Length > 0)
+            _inputFields[0].ActivateInputField();           
+            }
+    private IEnumerator RightAnswer()
+    {
+        foreach (TMP_InputField field in _inputFields)
+        {
+            field.image.color = Color.green;
         }
         yield return new WaitForSeconds(.75f);
         foreach (TMP_InputField field in _inputFields)

@@ -969,7 +969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7518659399072362047, guid: 76a21bc5223b24747b22a0f33865a3c0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9131162
+      value: -1.42
       objectReference: {fileID: 0}
     - target: {fileID: 7518659399072362047, guid: 76a21bc5223b24747b22a0f33865a3c0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2038,7 +2038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedBakingSet: {fileID: 11400000, guid: 056cc9a172bf35a4c9175d91efb70ae2, type: 2}
-  sceneGUID: 38a7dd6c66da35942bd84a1a8676ab19
+  sceneGUID: 12e6bf4c3aa48c241948198aba621436
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
   obsoleteCellSupportDataAsset: {fileID: 0}

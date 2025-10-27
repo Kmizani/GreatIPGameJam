@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedBakingSet: {fileID: 11400000, guid: 056cc9a172bf35a4c9175d91efb70ae2, type: 2}
-  sceneGUID: 06cbb1b69ae20ff47aadec1f79fd05ef
+  sceneGUID: fb4765f33c42cca4fa4c19b2360b911b
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
   obsoleteCellSupportDataAsset: {fileID: 0}
@@ -3398,6 +3398,46 @@ PrefabInstance:
       propertyPath: _text
       value: 
       objectReference: {fileID: 676264192}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: _sceneName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: _storyParts.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: '_storyParts.Array.data[0]'
+      value: And so I recovered the gems
+      objectReference: {fileID: 0}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: '_storyParts.Array.data[1]'
+      value: I restored hope into the world and kingdom
+      objectReference: {fileID: 0}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: '_storyParts.Array.data[2]'
+      value: And in so, I earned my gnome hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: '_storyParts.Array.data[3]'
+      value: But I did learn one lesson
+      objectReference: {fileID: 0}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: '_storyParts.Array.data[4]'
+      value: We shouldn't blame the witch
+      objectReference: {fileID: 0}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: '_storyParts.Array.data[5]'
+      value: For she too felt lost and isolate
+      objectReference: {fileID: 0}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: '_storyParts.Array.data[6]'
+      value: We all feel like that in life
+      objectReference: {fileID: 0}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: '_storyParts.Array.data[7]'
+      value: But it is important to keep on fighting
+      objectReference: {fileID: 0}
     - target: {fileID: 1011466508726245824, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: m_Name
       value: Lore Control

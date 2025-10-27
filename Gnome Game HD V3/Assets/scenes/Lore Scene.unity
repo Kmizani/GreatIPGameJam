@@ -3398,6 +3398,10 @@ PrefabInstance:
       propertyPath: _text
       value: 
       objectReference: {fileID: 676264192}
+    - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      propertyPath: _sceneName
+      value: 1-Bookshelf
+      objectReference: {fileID: 0}
     - target: {fileID: 1011466508726245824, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: m_Name
       value: Lore Control
