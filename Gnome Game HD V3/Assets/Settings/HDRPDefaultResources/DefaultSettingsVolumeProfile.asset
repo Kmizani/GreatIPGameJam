@@ -1347,7 +1347,7 @@ MonoBehaviour:
     m_Value: 0
   mask:
     m_OverrideState: 1
-    m_Value: {fileID: 0}
+    m_Value: {fileID: 2800000, guid: d0b22e309de4956479a8a5ef2905871c, type: 3}
   opacity:
     m_OverrideState: 1
     m_Value: 1

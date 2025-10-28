@@ -122,19 +122,7 @@ public class WordPuzzle : Puzzle
 
         if(_playerAnswer.ToLower() == _correctAnswer.ToLower())
         {
-            StartCoroutine(RightAnswer());
-            foreach (GameObject ui in UI)
-            {
-                ui.SetActive(false);
-            }
-            _confetti.SpawnVFX();
-            
-            if (lastPuzzle)
-            {
-                _gem.SetActive(true);
-            }
-
-            this.gameObject.SetActive(false);
+            StartCoroutine(HandleRightAnswer());
         }
         else
         {
@@ -148,7 +136,7 @@ public class WordPuzzle : Puzzle
         {
             field.image.color = Color.red;
         }
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(1f);
         foreach (TMP_InputField field in _inputFields)
         {
             field.text = "";
@@ -157,37 +145,29 @@ public class WordPuzzle : Puzzle
         }
         yield return null;
 
-        // Focus the first input field again        
-
-
-
-
-
-
-
-
+        // Focus the first input field again       
 
         if (_inputFields.Length > 0)
             _inputFields[0].ActivateInputField();           
-            }
+    }
     private IEnumerator RightAnswer()
     {
         foreach (TMP_InputField field in _inputFields)
         {
             field.image.color = Color.green;
         }
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(1f);
         foreach (TMP_InputField field in _inputFields)
         {
             field.text = "";
             field.image.color = Color.white;
             field.DeactivateInputField();
         }
-        yield return null;
 
-        // Focus the first input field again
-        if (_inputFields.Length > 0)
-            _inputFields[0].ActivateInputField();
+        foreach (GameObject ui in UI)
+        {
+            ui.SetActive(false);
+        }
     }
 
     private void Update()
@@ -200,5 +180,22 @@ public class WordPuzzle : Puzzle
                 this.GetComponent<Interactable>().enabled = true;
             }
         }
+    }
+
+    private IEnumerator HandleRightAnswer()
+    {
+        yield return StartCoroutine(RightAnswer());  // Wait for the green flash to finish
+
+        foreach (GameObject ui in UI)
+        {
+            ui.SetActive(false);
+        }
+
+        _confetti.SpawnVFX();
+
+        if (lastPuzzle)
+            _gem.SetActive(true);
+
+        this.gameObject.SetActive(false);
     }
 }

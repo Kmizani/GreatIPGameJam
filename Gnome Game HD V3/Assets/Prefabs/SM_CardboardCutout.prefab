@@ -243,7 +243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8bad8390554349040b20276d525b2e77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d0a353b28f2e05449e8425d960f1fca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -809,15 +809,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a310d86d69da341a7615edcd550447, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4418
+      value: 15.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a310d86d69da341a7615edcd550447, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.15
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a310d86d69da341a7615edcd550447, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.193
+      value: -14.87
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a310d86d69da341a7615edcd550447, type: 3}
       propertyPath: m_LocalRotation.w
@@ -883,6 +883,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 99a310d86d69da341a7615edcd550447, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9198755244539449474}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 99a310d86d69da341a7615edcd550447, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6770240797012735817}
   m_SourcePrefab: {fileID: 100100000, guid: 99a310d86d69da341a7615edcd550447, type: 3}
 --- !u!1 &7141710995351434373 stripped
 GameObject:
@@ -933,6 +936,7 @@ MonoBehaviour:
   _lightSource: {fileID: 7932622244057309337}
   _leftSpawn: {fileID: 84987683351236442}
   _rightSpawn: {fileID: 8509759098936082321}
+  _flipSprite: 1
   moveSpeed: 50
   groundAcceleration: 15
   groundDeceleration: 125
@@ -941,7 +945,7 @@ MonoBehaviour:
   rotateToMove: 0
   rotateSpeed: 0
   maxJumps: 1
-  jumpHeight: 1.5
+  jumpHeight: 2
   groundCheck: {fileID: 0}
   groundRadius: 0.2
   groundMask:
@@ -968,6 +972,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.090493955, y: 0.093159616, z: 0.21610346}
   m_Center: {x: 0.0014387441, y: 0.09729823, z: 0.0024254124}
+--- !u!114 &6770240797012735817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141710995351434373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517216d6a3579ff43aff4be2dee4fae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiObjects:
+  - {fileID: 0}
 --- !u!4 &7518659399072362047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99a310d86d69da341a7615edcd550447, type: 3}

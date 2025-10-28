@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Light _lightSource;
     [SerializeField] private Transform _leftSpawn;
     [SerializeField] private Transform _rightSpawn;
+    [SerializeField] public bool _flipSprite = true;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 6f;
@@ -50,6 +51,17 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         if (!cam && Camera.main) cam = Camera.main.transform;
+
+        
+    }
+
+    private void Start()
+    {
+        if (_flipSprite)
+        {
+            _sprite.rectTransform.localScale = new Vector3(-1, 1, 1);
+            _lightSource.transform.position = _leftSpawn.position;
+        }
     }
 
     void Update()
@@ -95,7 +107,17 @@ public class CharacterController : MonoBehaviour
         Vector2 input = new Vector2(h, v);
         if (input.sqrMagnitude > 1f) input.Normalize(); // no diagonal boost
 
-        if (input.x <= 0f)
+        if (input.x < 0f)
+        {
+            _sprite.rectTransform.localScale = new Vector3(1, 1, 1);
+            _lightSource.transform.position = _leftSpawn.position;
+        }
+        else if(input.x == 0f && _flipSprite)
+        {
+            _sprite.rectTransform.localScale = new Vector3(-1, 1, 1);
+            _lightSource.transform.position = _rightSpawn.position;
+        }
+        else if (input.x == 0f && !_flipSprite)
         {
             _sprite.rectTransform.localScale = new Vector3(1, 1, 1);
             _lightSource.transform.position = _leftSpawn.position;
@@ -168,6 +190,22 @@ public class CharacterController : MonoBehaviour
                 Quaternion target = Quaternion.LookRotation(face, Vector3.up);
                 rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, target, rotateSpeed * Time.fixedDeltaTime));
             }
+        }
+    }
+
+    public void SetFlip(bool flip)
+    {
+        _flipSprite = flip;
+
+        if (_flipSprite)
+        {
+            _sprite.rectTransform.localScale = new Vector3(-1, 1, 1);
+            _lightSource.transform.position = _rightSpawn.position;
+        }
+        else
+        {
+            _sprite.rectTransform.localScale = new Vector3(1, 1, 1);
+            _lightSource.transform.position = _leftSpawn.position;
         }
     }
 
