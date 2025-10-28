@@ -572,8 +572,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneName: 2-Table
   _transition: {fileID: 751963860}
-  _source: {fileID: 0}
-  _transitionSFX: {fileID: 0}
 --- !u!65 &204688414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3503,6 +3501,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4634515254864410073, guid: 16bbcea2c61f66c40b2f766fa6fbac25, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1349203082}
     - target: {fileID: 6126911201880044625, guid: 16bbcea2c61f66c40b2f766fa6fbac25, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.647743

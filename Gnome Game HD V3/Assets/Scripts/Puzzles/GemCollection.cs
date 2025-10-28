@@ -8,6 +8,7 @@ public class GemCollection : MonoBehaviour
 {
     private Interactable _currentInteractable;
     [SerializeField] private GameObject _ui;
+    [SerializeField] private GameObject _icon;
     [SerializeField] private Image _oldSprite;
     [SerializeField] private Sprite _newSprite;
     [SerializeField] private GameObject _vent;
@@ -53,6 +54,7 @@ public class GemCollection : MonoBehaviour
         yield return new WaitForSeconds(2f);
         _ui.SetActive(false);
         _vent.SetActive(false);
+        _icon.SetActive(false);
         if (_lastGem) _trigger.SetActive(true);
         this.gameObject.SetActive(false);
     }

@@ -1571,6 +1571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9062147653210855805, guid: 191581984a3660741b7a8cb4e6842428, type: 3}
+      propertyPath: m_Intensity
+      value: 180.77965
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1868,6 +1872,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4634515254864410073, guid: 16bbcea2c61f66c40b2f766fa6fbac25, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 956410886}
     - target: {fileID: 6126911201880044625, guid: 16bbcea2c61f66c40b2f766fa6fbac25, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.647743
@@ -2202,6 +2210,10 @@ PrefabInstance:
     - target: {fileID: 655486837163272889, guid: 191581984a3660741b7a8cb4e6842428, type: 3}
       propertyPath: m_Name
       value: Candle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062147653210855805, guid: 191581984a3660741b7a8cb4e6842428, type: 3}
+      propertyPath: m_Intensity
+      value: 136.62505
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3086,6 +3098,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1481574173}
     - target: {fileID: 1131079850825669438, guid: 7408f536d3957dd4bb56a403d65dc929, type: 3}
+      propertyPath: _icon
+      value: 
+      objectReference: {fileID: 1392733762}
+    - target: {fileID: 1131079850825669438, guid: 7408f536d3957dd4bb56a403d65dc929, type: 3}
       propertyPath: _text
       value: Blue Gem Collected!
       objectReference: {fileID: 0}
@@ -3101,6 +3117,10 @@ PrefabInstance:
       propertyPath: _textUI
       value: 
       objectReference: {fileID: 35379210}
+    - target: {fileID: 1131079850825669438, guid: 7408f536d3957dd4bb56a403d65dc929, type: 3}
+      propertyPath: _trigger
+      value: 
+      objectReference: {fileID: 1392733762}
     - target: {fileID: 1131079850825669438, guid: 7408f536d3957dd4bb56a403d65dc929, type: 3}
       propertyPath: _colour.a
       value: 1
@@ -3302,6 +3322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle
       objectReference: {fileID: 0}
+    - target: {fileID: 9062147653210855805, guid: 191581984a3660741b7a8cb4e6842428, type: 3}
+      propertyPath: m_Intensity
+      value: 83.00892
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3351,7 +3375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1147906571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5661,7 +5685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2099620102901372079, guid: 2ed473915d098174f83ddff54b7060dc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -125.000046
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2099620102901372079, guid: 2ed473915d098174f83ddff54b7060dc, type: 3}
       propertyPath: m_AnchoredPosition.y

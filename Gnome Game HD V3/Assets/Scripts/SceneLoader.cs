@@ -11,13 +11,13 @@ public class SceneLoader : MonoBehaviour
         if(_sceneName != null)
         {
             _transition.SetActive(true);
-            StartCoroutine(Wait());
-            SceneManager.LoadScene(_sceneName);
+            StartCoroutine(Wait()); 
         }
     }
 
     private IEnumerator Wait()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(_sceneName);
     }
 }

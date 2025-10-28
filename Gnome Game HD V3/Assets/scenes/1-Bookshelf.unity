@@ -9629,6 +9629,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1129357528}
     - target: {fileID: 1131079850825669438, guid: 7408f536d3957dd4bb56a403d65dc929, type: 3}
+      propertyPath: _icon
+      value: 
+      objectReference: {fileID: 682402679}
+    - target: {fileID: 1131079850825669438, guid: 7408f536d3957dd4bb56a403d65dc929, type: 3}
       propertyPath: _vent
       value: 
       objectReference: {fileID: 1243278883}
@@ -9640,6 +9644,10 @@ PrefabInstance:
       propertyPath: _textUI
       value: 
       objectReference: {fileID: 1750066759}
+    - target: {fileID: 1131079850825669438, guid: 7408f536d3957dd4bb56a403d65dc929, type: 3}
+      propertyPath: _trigger
+      value: 
+      objectReference: {fileID: 682402679}
     - target: {fileID: 1131079850825669438, guid: 7408f536d3957dd4bb56a403d65dc929, type: 3}
       propertyPath: _colour.a
       value: 1

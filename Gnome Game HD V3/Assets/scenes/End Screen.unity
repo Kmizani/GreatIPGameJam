@@ -415,14 +415,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2603773, g: 0.2603773, b: 0.2603773, a: 0.6745098}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7d76b1e83293d4949ad46b0f3e8727e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -814,6 +814,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1112615616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1011466508726245824, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+  m_PrefabInstance: {fileID: 5051230645815144830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1112615621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112615616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3526aff406a9aa4a9aa34df7b66451a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1191974066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,35 +3395,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: '_storyParts.Array.data[0]'
-      value: And so I recovered the gems
+      value: And so I recovered the gems.
       objectReference: {fileID: 0}
     - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: '_storyParts.Array.data[1]'
-      value: I restored hope into the world and kingdom
+      value: I restored hope into the world and kingdom.
       objectReference: {fileID: 0}
     - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: '_storyParts.Array.data[2]'
-      value: And in so, I earned my gnome hat
+      value: And in so, I earned my gnome hat.
       objectReference: {fileID: 0}
     - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: '_storyParts.Array.data[3]'
-      value: But I did learn one lesson
+      value: But I did learn one lesson...
       objectReference: {fileID: 0}
     - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: '_storyParts.Array.data[4]'
-      value: We shouldn't blame the witch
+      value: We shouldn't blame the witch.
       objectReference: {fileID: 0}
     - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: '_storyParts.Array.data[5]'
-      value: For she too felt lost and isolate
+      value: For she too felt lost and isolated.
       objectReference: {fileID: 0}
     - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: '_storyParts.Array.data[6]'
-      value: We all feel like that in life
+      value: We all feel like that in life...
       objectReference: {fileID: 0}
     - target: {fileID: 640492067722784737, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: '_storyParts.Array.data[7]'
-      value: But it is important to keep on fighting
+      value: But it is important to keep on fighting!
       objectReference: {fileID: 0}
     - target: {fileID: 1011466508726245824, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
       propertyPath: m_Name
@@ -3452,10 +3469,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7934102102654066199, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1011466508726245824, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1112615621}
   m_SourcePrefab: {fileID: 100100000, guid: 5562d9b02ec29f946b67e2c64268f0e2, type: 3}
 --- !u!23 &5059788001983007760
 MeshRenderer:
