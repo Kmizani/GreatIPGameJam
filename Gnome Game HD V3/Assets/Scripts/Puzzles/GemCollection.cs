@@ -14,6 +14,8 @@ public class GemCollection : MonoBehaviour
     [SerializeField] private GameObject _trigger;
     [SerializeField] private GameObject _vignetteController;
     [SerializeField] private bool _lastGem = false;
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _collectSFX;
 
     public static event Action _gemCollected;
 
@@ -46,6 +48,7 @@ public class GemCollection : MonoBehaviour
     private IEnumerator ShowText()
     {
         Debug.Log("show text");
+        _source.PlayOneShot(_collectSFX);
         _ui.SetActive(true);
         yield return new WaitForSeconds(2f);
         _ui.SetActive(false);

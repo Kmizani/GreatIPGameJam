@@ -210,7 +210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bf52054db2f7148be1ae3525a628db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: Vent01
+  _sceneName: Vent02
+  _transition: {fileID: 0}
+  _source: {fileID: 0}
+  _transitionSFX: {fileID: 8300000, guid: c4f9ce959ad1dd44c95c861de58e1a97, type: 3}
 --- !u!1 &6378430878779585477
 GameObject:
   m_ObjectHideFlags: 0

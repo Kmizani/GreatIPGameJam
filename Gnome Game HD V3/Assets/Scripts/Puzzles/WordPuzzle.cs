@@ -16,6 +16,10 @@ public class WordPuzzle : Puzzle
     [SerializeField] private string[] _puzzleHints;
     [SerializeField] private bool lastPuzzle = false;
     [SerializeField] private GameObject _gem;
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _wrongSFX;
+    [SerializeField] private AudioClip _rightSFX;
+    [SerializeField] private AudioClip _confettiSFX;
     private VFXSpawner _confetti;
 
     private void Awake()
@@ -132,6 +136,7 @@ public class WordPuzzle : Puzzle
 
     private IEnumerator WrongAnswer()
     {
+        _source.PlayOneShot(_wrongSFX);
         foreach (TMP_InputField field in _inputFields)
         {
             field.image.color = Color.red;
@@ -152,6 +157,7 @@ public class WordPuzzle : Puzzle
     }
     private IEnumerator RightAnswer()
     {
+        _source.PlayOneShot(_rightSFX);
         foreach (TMP_InputField field in _inputFields)
         {
             field.image.color = Color.green;
@@ -170,18 +176,6 @@ public class WordPuzzle : Puzzle
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            foreach (GameObject ui in UI)
-            {
-                ui.SetActive(false);
-                this.GetComponent<Interactable>().enabled = true;
-            }
-        }
-    }
-
     private IEnumerator HandleRightAnswer()
     {
         yield return StartCoroutine(RightAnswer());  // Wait for the green flash to finish
@@ -190,12 +184,21 @@ public class WordPuzzle : Puzzle
         {
             ui.SetActive(false);
         }
-
+        _source.PlayOneShot(_confettiSFX);
         _confetti.SpawnVFX();
 
         if (lastPuzzle)
             _gem.SetActive(true);
 
         this.gameObject.SetActive(false);
+    }
+
+    public void Close()
+    {
+        foreach (GameObject ui in UI)
+        {
+            ui.SetActive(false);
+            this.GetComponent<Interactable>().enabled = true;
+        }
     }
 }

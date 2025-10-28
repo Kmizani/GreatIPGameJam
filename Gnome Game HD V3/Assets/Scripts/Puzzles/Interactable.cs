@@ -5,6 +5,8 @@ using UnityEngine;
  public class Interactable : MonoBehaviour
 {
     [SerializeField] GameObject UI;
+    [SerializeField] private AudioSource _interact;
+    [SerializeField] private AudioClip interactClip;
     private bool _playerInRange;
     public event Action triggerEvent;
 
@@ -18,6 +20,7 @@ using UnityEngine;
         if(other.tag == "player")
         {
             _playerInRange = true;
+            
             Debug.Log("player entered");
             UI.SetActive(true);
         }
@@ -44,6 +47,7 @@ using UnityEngine;
     }
      public void Interact()
     {
+        _interact.PlayOneShot(interactClip);
         triggerEvent?.Invoke();
         this.enabled = false;
         Debug.Log("interacted");
@@ -53,4 +57,5 @@ using UnityEngine;
     {
         UI.SetActive(false);
     }
+
 }
