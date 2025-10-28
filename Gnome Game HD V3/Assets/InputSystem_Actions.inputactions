@@ -516,7 +516,7 @@
                     "name": "",
                     "id": "d985adc4-3e5e-41be-b15a-d887dced1f3f",
                     "path": "<Keyboard>/enter",
-                    "interactions": "Hold",
+                    "interactions": "Hold(duration=0.4)",
                     "processors": "",
                     "groups": "",
                     "action": "ExitDialogue",

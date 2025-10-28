@@ -3,32 +3,27 @@ using UnityEngine.InputSystem;
 
 public class PauseFunctionality : MonoBehaviour
 {
-    private void Start()
+    private bool isPaused = false;
+    private bool isOnMainMenu = true;
+    [SerializeField] GameObject pauseMenu;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //if (!isOnMainMenu) return;
+            //isPaused = !isPaused;
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+   
+    public void ClickedResume()
     {
         Time.timeScale = 1f;
     }
 
-    public void Pause()
+    public void IsMainMenu(bool isMainMenu)
     {
-        Time.timeScale = 0f;
-        SwitchActionMap("UI");
-    }
-
-    public void Resume()
-    {
-        Time.timeScale = 1f;
-        SwitchActionMap("Player");
-    }
-
-    public void SwitchActionMap(string mapName)
-    {
-        // find first PlayerInput, if we were doing local multiplayer, we would have to find them all
-        PlayerInput playerInput = FindFirstObjectByType<PlayerInput>();
-        if (playerInput != null) playerInput.SwitchCurrentActionMap(mapName);
-    }
-
-    private void OnDestroy()
-    {
-        Time.timeScale = 1f;
+        isOnMainMenu = isMainMenu;
     }
 }
